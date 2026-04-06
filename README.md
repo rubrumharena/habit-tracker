@@ -15,7 +15,7 @@ A backend API built with Django REST Framework, containerized with Docker. It en
 - Containerized application with Docker and PostgreSQL
 
 
-## 🛎️ API Example
+## 🛎️ API Examples
 
 ### List all habits
 ```
