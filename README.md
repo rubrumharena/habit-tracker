@@ -1,6 +1,6 @@
 # 🧑‍💻 HabitTracker
 
-A small CRUD project with API built using Django REST Framework and composed with Docker. You can create habits and mark them as completed everyday to maintain the streak.
+A backend API built with Django REST Framework, containerized with Docker. It enables users to create habits and track their daily progress through a streak-based system.
 
 ## 📦 Tech Stack
 - Django REST Framework
@@ -15,10 +15,46 @@ A small CRUD project with API built using Django REST Framework and composed wit
 - Containerized application with Docker and PostgreSQL
 
 
+## API Example
+
+# List all habits
+```
+GET /habits/
+```
+
+# Create new habit
+```
+POST /habits/
+```
+
+# Get a certain habit with its streak
+```
+GET /habits/<int:id>/
+```
+
+# Update habit details
+```
+PATCH/PUT /habits/<int:id>/
+```
+
+# Delete habit
+```
+DELETE /habits/<int:id>/
+```
+
+# Get logs of a certain habit about its activity
+```
+GET /habits/<int:id>/logs/
+```
+
+# Complete or uncomplete a certain habit  
+```
+POST /habits/<int:id>/toggle/
+```
+
 
 ## 📈 Overall Growth
-In this project, I got acquainted with the basic concepts of REST, worked with some DRF generic views, and created a couple of serializers. I also learned how to build a project infrastructure using Docker. In general, the project laid the foundation for the development of very important tools for the backend.
-
+Through this project, I developed a solid understanding of building RESTful APIs with Django REST Framework, including the use of generic views and serializers. I also set up a Dockerized environment with PostgreSQL, gaining practical experience in structuring and running backend services.
 
 
 ## 🚦Running the Project
