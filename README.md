@@ -15,39 +15,39 @@ A backend API built with Django REST Framework, containerized with Docker. It en
 - Containerized application with Docker and PostgreSQL
 
 
-## API Example
+## 🛎️ API Example
 
-# List all habits
+### List all habits
 ```
 GET /habits/
 ```
 
-# Create new habit
+### Create new habit
 ```
 POST /habits/
 ```
 
-# Get a certain habit with its streak
+### Get a certain habit with its streak
 ```
 GET /habits/<int:id>/
 ```
 
-# Update habit details
+### Update habit details
 ```
 PATCH/PUT /habits/<int:id>/
 ```
 
-# Delete habit
+### Delete habit
 ```
 DELETE /habits/<int:id>/
 ```
 
-# Get logs of a certain habit about its activity
+### Get logs of a certain habit about its activity
 ```
 GET /habits/<int:id>/logs/
 ```
 
-# Complete or uncomplete a certain habit  
+### Complete or uncomplete a certain habit  
 ```
 POST /habits/<int:id>/toggle/
 ```
