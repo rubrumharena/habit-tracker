@@ -12,7 +12,7 @@ class Habit(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     @property
-    def streak(self):
+    def streak(self) -> int:
         dates = set(HabitLog.objects.filter(habit=self).values_list('date', flat=True))
 
         if not dates:

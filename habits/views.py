@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -17,6 +18,15 @@ from habits.serializers import HabitListSerializer, HabitDetailSerializer, Habit
 class HabitListCreateView(ListCreateAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitListSerializer
+    pagination_class = PageNumberPagination
+    pagination_class.page_size = 3
+
+    def get_queryset(self):
+        ordering = self.request.GET.get('ordering')
+        queryset = super().get_queryset()
+        if ordering:
+            return queryset.order_by(ordering)
+        return queryset
 
 
 class HabitRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
