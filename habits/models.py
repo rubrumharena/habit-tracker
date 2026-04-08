@@ -6,10 +6,11 @@ from django.utils import timezone
 # Create your models here.
 
 class Habit(models.Model):
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
 
     @property
     def streak(self) -> int:
@@ -42,7 +43,7 @@ class Habit(models.Model):
 
 
 class HabitLog(models.Model):
-    habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
+    habit = models.ForeignKey(Habit, on_delete=models.CASCADE, related_name='logs')
     date = models.DateField(default=timezone.localdate)
 
     def __str__(self):
