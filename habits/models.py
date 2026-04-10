@@ -1,4 +1,5 @@
 from datetime import timedelta
+from functools import cached_property
 
 from django.db import models
 from django.utils import timezone
@@ -12,7 +13,7 @@ class Habit(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey('users.User', on_delete=models.CASCADE)
 
-    @property
+    @cached_property
     def streak(self) -> int:
         dates = set(HabitLog.objects.filter(habit=self).values_list('date', flat=True))
 
