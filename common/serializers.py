@@ -8,7 +8,7 @@ class BaseHabitSerializer(ModelSerializer):
 
     def get_user(self, obj):
         from users.serializers import UserSerializer
-        return UserSerializer(obj.user, read_only=True).data
+        return UserSerializer(obj.user).data
 
     def get_logs(self, obj):
         from habits.serializers import HabitLogSerializer
