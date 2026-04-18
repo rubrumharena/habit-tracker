@@ -12,11 +12,14 @@ class HabitsCacheKey(BaseCacheKey):
     DOMAIN = 'habits'
 
     @classmethod
-    def habits(cls, order_by: str) -> str:
+    def habits(cls, **kwargs) -> str:
         elements = []
 
-        if order_by:
-            elements.extend(['order_by', order_by])
+        if any(kwargs):
+            ordered_keys = sorted(kwargs.keys())
+            for key in ordered_keys:
+                elements.append(key)
+                elements.extend(sorted(kwargs[key]))
 
         return cls._build(*elements)
 

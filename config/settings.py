@@ -58,6 +58,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'silk',
+    'django_filters',
 
     'habits',
     'users',
